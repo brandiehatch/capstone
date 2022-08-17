@@ -78,7 +78,8 @@ Supervised Classification - likely a combination of Logistic Regression, KNN Cla
 |-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
 | 0.625516622 | 0.62785265  | 0.637049455 | 0.635770954 | 0.563139932 | 0.650887574 | 0.563139932 | 0.603842635 |
 
-__Conclusion:__ 
+
+### Conclusion
 
 Overall, in conclusion, women are getting more degrees than men. They are still paid less than men, even though they are in the workforce. Part of the delta is that females are not represented in the highest paying jobs (STEM)
 
@@ -90,7 +91,7 @@ __Problem Statement (Hypothesis):__
 - The Null Hypothesis is accurate because the average difference in years of education between males and females is not zero.  The difference is 0.186681
 
 
-__Next Steps__
+### Next Steps
 
 1. Make sure that though females are getting more degrees than males,  they can make the same amount of money. 
 
