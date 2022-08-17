@@ -18,6 +18,9 @@ Data used in this project is from the US Census' American Community Survey (ACS)
 ### Problem, Goal, Questions
 
 __Problem:__ 
+- The average difference in the years of education attained between gender=1, gender=2 is zero. 
+- The average difference in the years of education attained between gender=1, gender=2 is not zero. 
+-   (gender 1 = male, gender 2 = female)
 
 __Goal:__ Create a model that most accurately predicts Sex from school level, income, occupation, age, race, and marital status Census Data. 
 
@@ -32,10 +35,34 @@ Data collected from the US Census' American Community Survey (ACS) Public Use Mi
 
 Features used listed below:
 
-
-| **Feature**      | **Type** | **Dataset** | **Description**                                           |
-|------------------|----------|-------------|-----------------------------------------------------------|
-|    | _object_ | df          |                     |
+| Feature   | Type | Numerical or Categorical | Description                                                                           |
+|-----------|------|--------------------------|---------------------------------------------------------------------------------------|
+| AGEP      | int  | N                        | Age: 1 to 99 years                                                                    |
+| CIT       | int  | C                        | Citizenship status                                                                    |
+| COW       | int  | C                        | Class of worker                                                                       |
+| ENG       | int  | C                        | Ability to speak English                                                              |
+| ESR       | int  | C                        | Employment status recode                                                              |
+| FFSP      | int  | C                        | Yearly food stamp/Supplemental Nutrition Assistance Program (SNAP) recipient          |
+| LANX      | int  | C                        | Language other than English spoken at home                                            |
+| MAR       | int  | C                        | Marital Status                                                                        |
+| MULTG     | int  | C                        | Multigenerational household                                                           |
+| NOC       | int  | C                        | Number of own children in household (unweighted)                                      |
+| OCCP      | int  | C                        | Occupation recode for 2018 and later based on 2018 OCC codes                          |
+| PINCP     | int  | N                        | Total person's income                                                                 |
+| POVPIP    | int  | C                        | Income-to-poverty ratio recode                                                        |
+| RAC1P     | int  | C                        | Recoded detailed race code                                                            |
+| SCH       | int  | C                        | School Enrollment                                                                     |
+| SCHG      | int  | C                        | Grade Level Attending                                                                 |
+| SCHL      | int  | C                        | Educational Attainment                                                                |
+| SCIENGP   | int  | C                        | Field of degree science and engineering flag - NSF definition                         |
+| SCIENGRLP | int  | C                        | Field of degree science and engineering related flag - NSF definition                 |
+| SEMP      | int  | C                        | Self-employement income past 12 months                                                |
+| SEX       | int  | C                        | Sex                                                                                   |
+| WAGP      | int  | N                        | Wages or salary income past 12 months (use ADJINC to adjust WAGP to constant dollars) |
+| WKEXREL   | int  | C                        | Work experience of householder and spouse                                             |
+| WKL       | int  | C                        | When last worked                                                                      |
+| WRK       | int  | C                        | Worked last week                                                                      |
+| STATE     | int  | C                        | State code based on 2010 Census Definition                                            |
 
 
 
@@ -43,24 +70,31 @@ Create with https://www.tablesgenerator.com/markdown_tables#
 
 
 
-
 ### Model Findings
 
-1. Clustering / k-Means to see if there are any interesting patterns in the data
-2. Supervised Classification - likely a combination of Logistic Regression, KNN Classifier, Random Forest, Decision Trees, Naive Bayes, and SVM to see which one performs the best at accurately predicting male or female based on education attainment, labor types, income, etc.
+Supervised Classification - likely a combination of Logistic Regression, KNN Classifier, Random Forest, Decision Trees, Naive Bayes, and SVM to see which one performs the best at accurately predicting male or female based on education attainment, labor types, income, etc.
+
+| Best Score  | Train Score | Test Score  | Accuracy    | Recall      | Precision   | Specificity | F1          |
+|-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
+| 0.625516622 | 0.62785265  | 0.637049455 | 0.635770954 | 0.563139932 | 0.650887574 | 0.563139932 | 0.603842635 |
+
+__Conclusion:__ 
+
+Overall, in conclusion, women are getting more degrees than men. They are still paid less than men, even though they are in the workforce. Part of the delta is that females are not represented in the highest paying jobs (STEM)
 
 
-### Recommendations
+__Problem Statement (Hypothesis):__ 
+- The average difference in the years of education attained between gender=1, gender=2 is zero.
+- The average difference in the years of education attained between gender=1, gender=2 is not zero.
+- Gender 1 = male | Gender 2 = female
+- The Null Hypothesis is accurate because the average difference in years of education between males and females is not zero.  The difference is 0.186681
 
 
-__Implications:__
+__Next Steps__
 
+1. Make sure that though females are getting more degrees than males,  they can make the same amount of money. 
 
-
-__Next Steps:__
-
-
-
+2. Dive deeper into different forms of classification models to continue to explore the differences between males & females.
 
 
 ### Sources:
